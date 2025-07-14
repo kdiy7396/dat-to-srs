@@ -218,7 +218,7 @@ jobs:
               }
             ]
           }
-EOF
+          EOF
 
           git clone https://github.com/Loyalsoldier/geoip.git
           cd geoip
