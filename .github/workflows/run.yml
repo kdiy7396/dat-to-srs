@@ -194,27 +194,32 @@ jobs:
               {
                 "input": "geolocation-!cn",
                 "output": "release/geolocation-not-cn.srs",
-                "format": "sing-box"
+                "input_type": "file", 
+                "output_type": "sing-box"
               },
               {
                 "input": "category-ads-all",
                 "output": "release/category-ads-all.srs",
-                "format": "sing-box"
+                "input_type": "file", 
+                "output_type": "sing-box"
               },
               {
                 "input": "geosite.dat",
                 "output": "release/geosite.srs",
-                "format": "sing-box"
+                "input_type": "file", 
+                "output_type": "sing-box"
               },
               {
                 "input": "geoip.dat",
                 "output": "release/geoip.srs",
-                "format": "sing-box"
+                "input_type": "file", 
+                "output_type": "sing-box"
               },
               {
                 "input": "category-games-not-cn.txt",
                 "output": "release/category-games-not-cn.srs",
-                "format": "sing-box"
+                "input_type": "file", 
+                "output_type": "sing-box"
               }
             ]
           }
