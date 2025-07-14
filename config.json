@@ -18,25 +18,6 @@
             "type": "text",
             "action": "add",
             "args": {
-                "inputDir": "./publish",
-                "wantedList": [
-                    "geolocation-!cn",
-                    "category-ads-all"
-                ],
-                "removePrefixesInLine": [
-                    "full:",
-                    "keyword:",
-                    "regexp:"
-                ],
-                "removeSuffixesInLine": [
-                    ":@cn"
-                ]
-            }
-        },
-        {
-            "type": "text",
-            "action": "add",
-            "args": {
                 "name": "category-games-!cn",
                 "uri": "./category-games-!cn-clean.txt"
             }
