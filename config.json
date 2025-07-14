@@ -18,16 +18,19 @@
             "type": "text",
             "action": "add",
             "args": {
-                "name": "geolocation-!cn",
-                "uri": "./publish/geolocation-!cn"
-            }
-        },
-        {
-            "type": "text",
-            "action": "add",
-            "args": {
-                "name": "category-ads-all",
-                "uri": "./publish/category-ads-all"
+                "inputDir": "./publish",
+                "wantedList": [
+                    "geolocation-!cn",
+                    "category-ads-all"
+                ],
+                "removePrefixesInLine": [
+                    "full:",
+                    "keyword:",
+                    "regexp:"
+                ],
+                "removeSuffixesInLine": [
+                    ":@cn"
+                ]
             }
         },
         {
@@ -35,7 +38,15 @@
             "action": "add",
             "args": {
                 "name": "category-games-!cn",
-                "uri": "./category-games-not-cn.txt"
+                "uri": "./category-games-not-cn.txt",
+                "removePrefixesInLine": [
+                    "full:",
+                    "keyword:",
+                    "regexp:"
+                ],
+                "removeSuffixesInLine": [
+                    ":@cn"
+                ]
             }
         }
     ],
