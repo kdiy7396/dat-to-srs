@@ -190,7 +190,7 @@ jobs:
           cd geoip
           go build ./
           cd ..
-          ./geoip/geoip convert -c config.json
+          ./geoip/geoip convert -c $(pwd)/config.json
 
       - name: Release and upload assets
         uses: svenstaro/upload-release-action@v2
