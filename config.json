@@ -8,7 +8,7 @@
             }
         },
         {
-            "type": "geositeFile",
+            "type": "v2rayGeoIPDat",
             "action": "add",
             "args": {
                 "uri": "./publish/geosite.dat"
