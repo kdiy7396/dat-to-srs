@@ -184,9 +184,7 @@ jobs:
 
       - name: Build geoip executable and convert to srs
         run: |
-          echo "Start converting .dat and category-games-!cn to .srs..."
-          curl -L -o category-games-not-cn.txt https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/category-games-!cn
-          perl -ne 'print if /^[0-9a-fA-F:.\/]+$/' category-games-not-cn.txt > category-games-!cn-clean.txt
+          echo "Start converting .dat to .srs..."
           git clone https://github.com/Loyalsoldier/geoip.git
           cd geoip
           go build ./
