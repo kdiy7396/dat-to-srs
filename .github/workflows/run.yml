@@ -189,7 +189,6 @@ jobs:
           cd geoip
           go build ./
           cd ..
-          
           ./geoip/geoip convert -c $(pwd)/config.json
 
       - name: Release and upload assets
