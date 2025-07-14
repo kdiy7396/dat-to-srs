@@ -13,14 +13,6 @@
             "args": {
                 "uri": "./publish/geosite.dat"
             }
-        },
-        {
-            "type": "text",
-            "action": "add",
-            "args": {
-                "name": "category-games-!cn",
-                "uri": "./category-games-!cn-clean.txt"
-            }
         }
     ],
     "output": [
