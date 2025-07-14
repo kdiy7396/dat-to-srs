@@ -189,47 +189,61 @@ jobs:
           curl -L -o category-games-not-cn.txt https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/category-games-!cn
 
           cat > config.json <<EOF
+          [
           {
-            "sets": [
-              {
-                "input": "geolocation-!cn",
-                "output": "release/geolocation-not-cn.srs",
-                "input_type": "file", 
-                "output_type": "sing-box"
-              },
-              {
-                "input": "category-ads-all",
-                "output": "release/category-ads-all.srs",
-                "input_type": "file", 
-                "output_type": "sing-box"
-              },
-              {
-                "input": "geosite.dat",
-                "output": "release/geosite.srs",
-                "input_type": "file", 
-                "output_type": "sing-box"
-              },
-              {
-                "input": "geoip.dat",
-                "output": "release/geoip.srs",
-                "input_type": "file", 
-                "output_type": "sing-box"
-              },
-              {
-                "input": "category-games-not-cn.txt",
-                "output": "release/category-games-not-cn.srs",
-                "input_type": "file", 
-                "output_type": "sing-box"
-              }
-            ]
+            "type": "singboxSRS",
+            "action": "add",
+            "args": {
+            "name": "geolocation-not-cn",
+            "uri": "./geolocation-!cn"
+            }
+          },
+          {
+            "type": "singboxSRS",
+            "action": "add",
+            "args": {
+            "name": "category-ads-all",
+            "uri": "./category-ads-all"
+            }
+          },
+          {
+            "type": "singboxSRS",
+            "action": "add",
+            "args": {
+            "name": "geosite",
+            "uri": "./geosite.dat"
+            }
+          },
+          {
+            "type": "singboxSRS",
+            "action": "add",
+            "args": {
+            "name": "geoip",
+            "uri": "./geoip.dat"
+            }
+          },
+          {
+            "type": "singboxSRS",
+            "action": "add",
+            "args": {
+            "name": "category-games-not-cn",
+            "uri": "./category-games-not-cn.txt"
+            }
+          },
+          {
+            "type": "singboxSRS",
+            "action": "output",
+            "args": {
+            "outputDir": "./release"
+            }
           }
+          ]
           EOF
 
           git clone https://github.com/Loyalsoldier/geoip.git
           cd geoip
           go build ./
           cd ..
-
           ./geoip/geoip convert -c config.json
 
       - name: Release and upload assets
