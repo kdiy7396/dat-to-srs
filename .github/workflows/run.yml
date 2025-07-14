@@ -183,54 +183,49 @@ jobs:
           sha256sum rules.zip > rules.zip.sha256sum
 
       - name: Build geoip executable and convert to srs
-  run: |
-    echo "Start converting .dat and category-games-!cn to .srs..."
+        run: |
+          echo "Start converting .dat and category-games-!cn to .srs..."
 
-    # 下载 category-games-!cn
-    curl -L -o category-games-not-cn.txt https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/category-games-!cn
+          curl -L -o category-games-not-cn.txt https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/category-games-!cn
 
-    # 准备 config.json
-    cat > config.json <<EOF
-    {
-      "sets": [
-        {
-          "input": "geolocation-!cn",
-          "output": "release/geolocation-not-cn.srs",
-          "format": "sing-box"
-        },
-        {
-          "input": "category-ads-all",
-          "output": "release/category-ads-all.srs",
-          "format": "sing-box"
-        },
-        {
-          "input": "geosite.dat",
-          "output": "release/geosite.srs",
-          "format": "sing-box"
-        },
-        {
-          "input": "geoip.dat",
-          "output": "release/geoip.srs",
-          "format": "sing-box"
-        },
-        {
-          "input": "category-games-not-cn.txt",
-          "output": "release/category-games-not-cn.srs",
-          "format": "sing-box"
-        }
-      ]
-    }
-    EOF
+          cat > config.json <<EOF
+          {
+            "sets": [
+              {
+                "input": "geolocation-!cn",
+                "output": "release/geolocation-not-cn.srs",
+                "format": "sing-box"
+              },
+              {
+                "input": "category-ads-all",
+                "output": "release/category-ads-all.srs",
+                "format": "sing-box"
+              },
+              {
+                "input": "geosite.dat",
+                "output": "release/geosite.srs",
+                "format": "sing-box"
+              },
+              {
+                "input": "geoip.dat",
+                "output": "release/geoip.srs",
+                "format": "sing-box"
+              },
+              {
+                "input": "category-games-not-cn.txt",
+                "output": "release/category-games-not-cn.srs",
+                "format": "sing-box"
+              }
+            ]
+          }
+EOF
 
-    # 编译 geoip 可执行文件
-    git clone https://github.com/Loyalsoldier/geoip.git
-    cd geoip
-    go build ./  # 生成 ./geoip 可执行文件
-    cd ..
+          git clone https://github.com/Loyalsoldier/geoip.git
+          cd geoip
+          go build ./
+          cd ..
 
-    # 执行转换
-    ./geoip/geoip convert -c config.json
-
+          ./geoip/geoip convert -c config.json
 
       - name: Release and upload assets
         uses: svenstaro/upload-release-action@v2
