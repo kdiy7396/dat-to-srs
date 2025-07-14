@@ -20,12 +20,7 @@
             "type": "singboxSRS",
             "action": "output",
             "args": {
-                "outputDir": "./release",
-                "wantedList": [
-                    "category-games-!cn",
-                    "geoip",
-                    "geosite"
-                ]
+                "outputDir": "./release"
             }
         }
     ]
