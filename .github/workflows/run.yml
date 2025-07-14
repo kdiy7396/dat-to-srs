@@ -182,6 +182,55 @@ jobs:
           sha256sum geosite.dat > geosite.dat.sha256sum
           sha256sum rules.zip > rules.zip.sha256sum
 
+            - name: Copy files to release folder
+        run: |
+          mkdir -p release
+          cp geosite.dat geoip.dat release/
+
+      - name: Download category-games-!cn from v2fly/domain-list-community
+        run: |
+          curl -L -o category-games-not-cn.txt https://raw.githubusercontent.com/v2fly/domain-list-community/master/data/category-games-!cn
+
+      - name: Generate SRS using geoip convert
+        run: |
+          mkdir -p release
+
+          # 构建 config.json 文件
+          cat > config.json <<EOF
+          {
+            "sets": [
+              {
+                "input": "geolocation-!cn",
+                "output": "release/srs/geolocation-not-cn.srs",
+                "format": "sing-box"
+              },
+              {
+                "input": "category-ads-all",
+                "output": "release/srs/category-ads-all.srs",
+                "format": "sing-box"
+              },
+              {
+                "input": "geosite.dat",
+                "output": "release/srs/geosite.srs",
+                "format": "sing-box"
+              },
+              {
+                "input": "geoip.dat",
+                "output": "release/srs/geoip.srs",
+                "format": "sing-box"
+              },
+              {
+                "input": "category-games-not-cn.txt",
+                "output": "release/srs/category-games-not-cn.srs",
+                "format": "sing-box"
+              }
+            ]
+          }
+          EOF
+
+          # 使用 geoip repo 中的可执行文件进行转换
+          ./geoip convert -c config.json
+
       - name: Release and upload assets
         uses: svenstaro/upload-release-action@v2
         with:
