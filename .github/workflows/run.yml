@@ -221,7 +221,6 @@ jobs:
 
           ./geoip convert -c config.json
 
-
       - name: Release and upload assets
         uses: svenstaro/upload-release-action@v2
         with:
