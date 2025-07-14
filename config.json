@@ -30,8 +30,6 @@
             "args": {
                 "outputDir": "./release",
                 "wantedList": [
-                    "geolocation-!cn",
-                    "category-ads-all",
                     "category-games-!cn",
                     "geoip",
                     "geosite"
