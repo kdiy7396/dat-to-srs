@@ -1,50 +1,57 @@
 {
-    "rules": [
+    "input": [
         {
-            "type": "singboxSRS",
+            "type": "v2rayGeoIPDat",
             "action": "add",
             "args": {
-                "name": "geolocation-not-cn",
-                "uri": "./geolocation-!cn"
+                "file": "./publish/geoip.dat"
             }
         },
         {
-            "type": "singboxSRS",
+            "type": "geositeFile",
+            "action": "add",
+            "args": {
+                "file": "./publish/geosite.dat"
+            }
+        },
+        {
+            "type": "text",
+            "action": "add",
+            "args": {
+                "name": "geolocation-!cn",
+                "file": "./publish/geolocation-!cn"
+            }
+        },
+        {
+            "type": "text",
             "action": "add",
             "args": {
                 "name": "category-ads-all",
-                "uri": "./category-ads-all"
+                "file": "./publish/category-ads-all"
             }
         },
         {
-            "type": "singboxSRS",
+            "type": "text",
             "action": "add",
             "args": {
-                "name": "geosite",
-                "uri": "./geosite.dat"
+                "name": "category-games-!cn",
+                "file": "./category-games-not-cn.txt"
             }
-        },
-        {
-            "type": "singboxSRS",
-            "action": "add",
-            "args": {
-                "name": "geoip",
-                "uri": "./geoip.dat"
-            }
-        },
-        {
-            "type": "singboxSRS",
-            "action": "add",
-            "args": {
-                "name": "category-games-not-cn",
-                "uri": "./category-games-not-cn.txt"
-            }
-        },
+        }
+    ],
+    "output": [
         {
             "type": "singboxSRS",
             "action": "output",
             "args": {
-                "outputDir": "./release"
+                "outputDir": "./release",
+                "wantedList": [
+                    "geolocation-!cn",
+                    "category-ads-all",
+                    "category-games-!cn",
+                    "geoip",
+                    "geosite"
+                ]
             }
         }
     ]
