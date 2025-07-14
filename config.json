@@ -4,14 +4,14 @@
             "type": "v2rayGeoIPDat",
             "action": "add",
             "args": {
-                "file": "./publish/geoip.dat"
+                "uri": "./publish/geoip.dat"
             }
         },
         {
             "type": "geositeFile",
             "action": "add",
             "args": {
-                "file": "./publish/geosite.dat"
+                "uri": "./publish/geosite.dat"
             }
         },
         {
@@ -19,7 +19,7 @@
             "action": "add",
             "args": {
                 "name": "geolocation-!cn",
-                "file": "./publish/geolocation-!cn"
+                "uri": "./publish/geolocation-!cn"
             }
         },
         {
@@ -27,7 +27,7 @@
             "action": "add",
             "args": {
                 "name": "category-ads-all",
-                "file": "./publish/category-ads-all"
+                "uri": "./publish/category-ads-all"
             }
         },
         {
@@ -35,7 +35,7 @@
             "action": "add",
             "args": {
                 "name": "category-games-!cn",
-                "file": "./category-games-not-cn.txt"
+                "uri": "./category-games-not-cn.txt"
             }
         }
     ],
